@@ -7,8 +7,15 @@ int main(){
         std::cerr << "Terjadi eror saat membuka teks!" << std::endl;
         return 1;
     }
-    //cek input file
+    std::vector<std::vector<char>> katakata;
     std::string kata;
-    while(getline(inputFile,kata))std::cout<<kata;
+    while(std::getline(inputFile,kata)){
+        katakata.push_back(std::vector<char>());
+        for(char &c :kata)if(c!=' '){katakata.back().push_back(toupper(c));std::cout<<(char)toupper(c);}
+        std::cout<<'\n';
+    }
+
+    inputFile.close();
+
     return 0;
 }
